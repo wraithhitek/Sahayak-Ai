@@ -13,6 +13,7 @@ import VisualAidGenerator from "@/components/visual-aid-generator"
 import AudioAssessment from "@/components/audio-assessment"
 import LessonPlanner from "@/components/lesson-planner"
 import FloatingElements from "@/components/ui/floating-elements"
+import LanguageDropdown from "@/components/LanguageDropdown"
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState("content")
   const [mounted, setMounted] = useState(false)
@@ -168,10 +169,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="flex items-center space-x-3">
-              <Badge className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 text-sm font-bold">
-                <Globe className="w-4 h-4 mr-2" />
-                Hackathon Demo
-              </Badge>
+              <LanguageDropdown className="rounded-full px-4 py-2 text-sm font-bold bg-gradient-to-r from-blue-500 to-cyan-500 text-white flex items-center" />
               <Badge className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-4 py-2 text-sm font-bold">
                 <Brain className="w-4 h-4 mr-2" />
                 Google AI Powered
