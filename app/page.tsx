@@ -1,5 +1,7 @@
 "use client"
 import React from "react"
+import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent } from "@/components/ui/tabs"
@@ -15,6 +17,7 @@ import LessonPlanner from "@/components/lesson-planner"
 import FloatingElements from "@/components/ui/floating-elements"
 import LanguageDropdown from "@/components/LanguageDropdown"
 export default function HomePage() {
+  const router= useRouter()
   const [activeTab, setActiveTab] = useState("content")
   const [mounted, setMounted] = useState(false)
   useEffect(() => {
@@ -181,11 +184,23 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-pink-100 via-purple-100 to-indigo-100 rounded-full text-purple-800 text-sm font-bold mb-8 border-2 border-purple-200 shadow-lg">
+          <div className="flex ml-[400px] item-center mb-[50px] justify-center">
+          <div className="inline-flex items-center  h-[85px] px-6 bg-gradient-to-r from-pink-100 via-purple-100 to-indigo-100 rounded-full text-purple-800 text-sm font-bold mb-8 border-2 border-purple-200 shadow-lg">
             <Heart className="w-5 h-5 mr-2 text-red-500" />
-            🇮🇳 Hackathon Project - Google AI for Education 🇮🇳
+            <p className="mt-[15px]">🇮🇳 Hackathon Project - Google AI for Education 🇮🇳 </p>
             <Sparkles className="w-5 h-5 ml-2 text-yellow-500" />
           </div>
+          <div>
+          <Image
+        src="/images/robot.png"
+        alt="Teaching Robot"
+        width={220}
+        height={220}
+        className="cursor-pointer ml-[170px] hover:scale-105 transition-transform "
+        onClick={() => router.push('/TeachingInterface')}
+      />
+      </div>
+      </div>
           <h2 className="text-6xl md:text-7xl font-black text-gray-900 mb-8 leading-tight">
             AI Teaching Assistant for{" "}
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
