@@ -1,4 +1,5 @@
 "use client"
+
 import React from "react"
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
@@ -14,15 +15,19 @@ import KnowledgeBase from "@/components/knowledge-base"
 import VisualAidGenerator from "@/components/visual-aid-generator"
 import AudioAssessment from "@/components/audio-assessment"
 import LessonPlanner from "@/components/lesson-planner"
+import CollaborationPanel from "@/components/collaboration-panel"
 import FloatingElements from "@/components/ui/floating-elements"
 import LanguageDropdown from "@/components/LanguageDropdown"
+
 export default function HomePage() {
-  const router= useRouter()
+  const router = useRouter()
   const [activeTab, setActiveTab] = useState("content")
   const [mounted, setMounted] = useState(false)
+
   useEffect(() => {
     setMounted(true)
   }, [])
+
   const features = [
     {
       id: "content",
@@ -84,7 +89,18 @@ export default function HomePage() {
       badge: "🎯 Advanced AI",
       capabilities: ["Cultural Intelligence", "Bloom's Taxonomy", "Differentiation Strategies"],
     },
+    {
+      id: "collaboration",
+      title: "👥 Content Collaboration",
+      description: "Share and co-develop localized educational content with teachers across India",
+      icon: Users,
+      color: "bg-gradient-to-br from-cyan-500 via-blue-500 to-indigo-500",
+      hoverColor: "hover:from-cyan-600 hover:via-blue-600 hover:to-indigo-600",
+      badge: "🤝 Collaboration",
+      capabilities: ["Real-time Co-editing", "Content Sharing", "Teacher Networks"],
+    },
   ]
+
   const demoStats = [
     {
       label: "Languages Supported",
@@ -119,12 +135,14 @@ export default function HomePage() {
       note: "Differentiated content for primary and middle school",
     },
   ]
+
   const achievements = [
     { icon: Brain, title: "Google AI Integration", description: "Gemini Pro & Vision APIs" },
     { icon: Globe, title: "Multi-Language AI", description: "8+ Indian Languages" },
     { icon: Users, title: "Multi-Grade Support", description: "Differentiated Learning" },
     { icon: Heart, title: "Cultural Intelligence", description: "Context-Aware Content" },
   ]
+
   const languages = [
     { name: "Hindi", native: "हिंदी", flag: "🇮🇳", coverage: "Primary Focus" },
     { name: "English", native: "English", flag: "🌍", coverage: "Global Standard" },
@@ -135,6 +153,7 @@ export default function HomePage() {
     { name: "Gujarati", native: "ગુજરાતી", flag: "🦁", coverage: "Regional Support" },
     { name: "Kannada", native: "ಕನ್ನಡ", flag: "🐘", coverage: "Regional Support" },
   ]
+
   if (!mounted) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -147,10 +166,12 @@ export default function HomePage() {
       </div>
     )
   }
+
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       {/* Animated Background */}
       <FloatingElements />
+
       {/* Enhanced Header */}
       <header className="relative z-20 bg-white/90 backdrop-blur-xl shadow-lg border-b border-white/30 sticky top-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -181,26 +202,27 @@ export default function HomePage() {
           </div>
         </div>
       </header>
+
       {/* Hero Section */}
       <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex ml-[400px] item-center mb-[50px] justify-center">
-          <div className="inline-flex items-center  h-[85px] px-6 bg-gradient-to-r from-pink-100 via-purple-100 to-indigo-100 rounded-full text-purple-800 text-sm font-bold mb-8 border-2 border-purple-200 shadow-lg">
-            <Heart className="w-5 h-5 mr-2 text-red-500" />
-            <p className="mt-[15px]">🇮🇳 Hackathon Project - Google AI for Education 🇮🇳 </p>
-            <Sparkles className="w-5 h-5 ml-2 text-yellow-500" />
+            <div className="inline-flex items-center h-[85px] px-6 bg-gradient-to-r from-pink-100 via-purple-100 to-indigo-100 rounded-full text-purple-800 text-sm font-bold mb-8 border-2 border-purple-200 shadow-lg">
+              <Heart className="w-5 h-5 mr-2 text-red-500" />
+              <p className="mt-[15px]">🇮🇳 Hackathon Project - Google AI for Education 🇮🇳 </p>
+              <Sparkles className="w-5 h-5 ml-2 text-yellow-500" />
+            </div>
+            <div>
+              <Image
+                src="/images/robot.png"
+                alt="Teaching Robot"
+                width={220}
+                height={220}
+                className="cursor-pointer ml-[170px] hover:scale-105 transition-transform "
+                onClick={() => router.push('/TeachingInterface')}
+              />
+            </div>
           </div>
-          <div>
-          <Image
-        src="/images/robot.png"
-        alt="Teaching Robot"
-        width={220}
-        height={220}
-        className="cursor-pointer ml-[170px] hover:scale-105 transition-transform "
-        onClick={() => router.push('/TeachingInterface')}
-      />
-      </div>
-      </div>
           <h2 className="text-6xl md:text-7xl font-black text-gray-900 mb-8 leading-tight">
             AI Teaching Assistant for{" "}
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
@@ -212,6 +234,7 @@ export default function HomePage() {
             <strong>resource constraints</strong>, and <strong>multi-grade teaching</strong> through intelligent AI
             solutions.
           </p>
+
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16">
             <Button
@@ -231,6 +254,7 @@ export default function HomePage() {
               View Presentation
             </Button>
           </div>
+
           {/* Demo Statistics */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
             {demoStats.map((stat, index) => {
@@ -253,6 +277,7 @@ export default function HomePage() {
               )
             })}
           </div>
+
           {/* Technology Stack */}
           <div className="flex flex-wrap items-center justify-center space-x-8 text-sm text-gray-600 mb-8">
             <div className="flex items-center bg-white/70 px-6 py-3 rounded-full shadow-lg mb-4">
@@ -274,6 +299,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
       {/* Language Support Showcase */}
       <section className="relative z-10 py-16 px-4 sm:px-6 lg:px-8 bg-white/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
@@ -300,6 +326,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
       {/* Features Showcase */}
       <section className="relative z-10 py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -377,6 +404,7 @@ export default function HomePage() {
                 )
               })}
             </div>
+
             {/* Tab Content */}
             <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-3xl border-2 border-white/30 overflow-hidden">
               <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-6">
@@ -417,10 +445,14 @@ export default function HomePage() {
               <TabsContent value="planner" className="p-8 m-0">
                 <LessonPlanner />
               </TabsContent>
+              <TabsContent value="collaboration" className="p-8 m-0">
+                <CollaborationPanel />
+              </TabsContent>
             </div>
           </Tabs>
         </div>
       </section>
+
       {/* Technical Achievements */}
       <section className="relative z-10 py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -447,6 +479,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
       {/* Footer */}
       <footer className="relative z-10 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 text-white mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -497,6 +530,9 @@ export default function HomePage() {
                 <li>
                   <span className="text-blue-200">Lesson Planning</span>
                 </li>
+                <li>
+                  <span className="text-cyan-300">Content Collaboration</span>
+                </li>
               </ul>
             </div>
             {/* Technology Stack */}
@@ -522,6 +558,10 @@ export default function HomePage() {
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-red-400 rounded-full"></div>
                   <span className="text-blue-200">Next.js 15</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-3 h-3 bg-cyan-400 rounded-full"></div>
+                  <span className="text-blue-200">Teacher Collaboration</span>
                 </div>
               </div>
             </div>
