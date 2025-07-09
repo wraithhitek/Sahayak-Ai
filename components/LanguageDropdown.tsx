@@ -14,8 +14,8 @@ interface Language {
 }
 
 const languages: Language[] = [
-  { code: "hi", name: "Hindi", native: "हिंदी", flag: "🇮🇳" },
   { code: "en", name: "English", native: "English", flag: "🌍" },
+  { code: "hi", name: "Hindi", native: "हिंदी", flag: "🇮🇳" },
   { code: "mr", name: "Marathi", native: "मराठी", flag: "🏛️" },
   { code: "bn", name: "Bengali", native: "বাংলা", flag: "🐅" },
   { code: "ta", name: "Tamil", native: "தமிழ்", flag: "🏛️" },
@@ -26,15 +26,21 @@ const languages: Language[] = [
 
 interface LanguageDropdownProps {
   className?: string
+  onLanguageChange?: (lang: string) => void
 }
 
-export default function LanguageDropdown({ className }: LanguageDropdownProps) {
+export default function LanguageDropdown({ className, onLanguageChange }: LanguageDropdownProps) {
   const [selectedLanguage, setSelectedLanguage] = useState<Language>(languages[0])
   const [isOpen, setIsOpen] = useState(false)
 
   const handleLanguageSelect = (language: Language) => {
     setSelectedLanguage(language)
     setIsOpen(false)
+
+    // 👇 Call the parent function to inform language change
+    if (onLanguageChange) {
+      onLanguageChange(language.code)
+    }
   }
 
   return (
@@ -62,7 +68,9 @@ export default function LanguageDropdown({ className }: LanguageDropdownProps) {
                     <div className="font-medium">{language.name}</div>
                     <div className="text-sm text-gray-500">{language.native}</div>
                   </div>
-                  {selectedLanguage.code === language.code && <Check className="w-4 h-4 text-blue-600" />}
+                  {selectedLanguage.code === language.code && (
+                    <Check className="w-4 h-4 text-blue-600" />
+                  )}
                 </Button>
               ))}
             </div>
