@@ -1,33 +1,43 @@
 "use client"
+
 import React from "react"
-import { useRouter } from 'next/navigation'
-import Image from 'next/image'
+import { useRouter } from "next/navigation"
+import Image from "next/image"
 import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { BookOpen, Camera, MessageCircle, PenTool, Mic, Calendar, Sparkles, Users, Globe, Zap, Heart, Award, Rocket, Brain, CheckCircle, ArrowRight, Play, Share2, MessageSquare, Eye, Wand2 } from 'lucide-react'
+import { BookOpen, Camera, MessageCircle, PenTool, Mic, Calendar, Sparkles, Users, Globe, Zap, Heart, Award, Rocket, Brain, CheckCircle, ArrowRight, Play, Share2, MessageSquare, Eye, Wand2, Clock, TrendingUp } from 'lucide-react'
 import ContentGenerator from "@/components/content-generator"
 import WorksheetCreator from "@/components/worksheet-creator"
 import KnowledgeBase from "@/components/knowledge-base"
 import VisualAidGenerator from "@/components/visual-aid-generator"
 import AudioAssessment from "@/components/audio-assessment"
 import LessonPlanner from "@/components/lesson-planner"
+import CollaborationPanel from "@/components/collaboration-panel"
 import FloatingElements from "@/components/ui/floating-elements"
 import LanguageDropdown from "@/components/LanguageDropdown"
+import MultiGradeManager from "@/components/multi-grade-manager" // Added new component
+import StudentProgressTracker from "@/components/student-progress-tracker" // Added new component
+
 export default function HomePage() {
-  const router= useRouter()
+  const router = useRouter()
   const [activeTab, setActiveTab] = useState("content")
   const [mounted, setMounted] = useState(false)
+
+  // useEffect to ensure the component is mounted on the client-side
+  // This helps with hydration issues if components rely on browser APIs
   useEffect(() => {
     setMounted(true)
   }, [])
+
+  // Array defining the features of the Sahayak AI
   const features = [
     {
       id: "content",
       title: "📚 Content Generator",
-      description: "Generate culturally relevant educational content in multiple Indian languages using Google AI",
+      description: "Generate culturally relevant educational content in multiple Indian languages using Google AI.",
       icon: BookOpen,
       color: "bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600",
       hoverColor: "hover:from-blue-600 hover:via-blue-700 hover:to-indigo-700",
@@ -37,7 +47,7 @@ export default function HomePage() {
     {
       id: "worksheet",
       title: "📸 Worksheet Creator",
-      description: "Upload textbook images and generate differentiated worksheets using Gemini Vision API",
+      description: "Upload textbook images and generate differentiated worksheets using Gemini Vision API.",
       icon: Camera,
       color: "bg-gradient-to-br from-green-500 via-green-600 to-emerald-600",
       hoverColor: "hover:from-green-600 hover:via-green-700 hover:to-emerald-700",
@@ -47,7 +57,7 @@ export default function HomePage() {
     {
       id: "knowledge",
       title: "🧠 Knowledge Assistant",
-      description: "Provide simple explanations for complex questions with cultural analogies and examples",
+      description: "Provide simple explanations for complex questions with cultural analogies and examples.",
       icon: MessageCircle,
       color: "bg-gradient-to-br from-purple-500 via-purple-600 to-violet-600",
       hoverColor: "hover:from-purple-600 hover:via-purple-700 hover:to-violet-700",
@@ -57,7 +67,7 @@ export default function HomePage() {
     {
       id: "visual",
       title: "🎨 Visual Aid Designer",
-      description: "Create educational diagrams and illustrations with step-by-step drawing instructions",
+      description: "Create educational diagrams and illustrations with step-by-step drawing instructions.",
       icon: PenTool,
       color: "bg-gradient-to-br from-orange-500 via-orange-600 to-red-500",
       hoverColor: "hover:from-orange-600 hover:via-orange-700 hover:to-red-600",
@@ -67,7 +77,7 @@ export default function HomePage() {
     {
       id: "audio",
       title: "🎤 Reading Assessment",
-      description: "AI-powered reading fluency and pronunciation assessment using Google Speech API",
+      description: "AI-powered reading fluency and pronunciation assessment using Google Speech API.",
       icon: Mic,
       color: "bg-gradient-to-br from-red-500 via-pink-500 to-rose-600",
       hoverColor: "hover:from-red-600 hover:via-pink-600 hover:to-rose-700",
@@ -77,14 +87,46 @@ export default function HomePage() {
     {
       id: "planner",
       title: "📅 Lesson Planner",
-      description: "Comprehensive lesson planning with cultural intelligence and multi-grade classroom support",
+      description: "Comprehensive lesson planning with cultural intelligence and multi-grade classroom support.",
       icon: Calendar,
       color: "bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500",
       hoverColor: "hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600",
       badge: "🎯 Advanced AI",
       capabilities: ["Cultural Intelligence", "Bloom's Taxonomy", "Differentiation Strategies"],
     },
+    {
+      id: "collaboration",
+      title: "👥 Content Collaboration",
+      description: "Share and co-develop localized educational content with teachers across India.",
+      icon: Users,
+      color: "bg-gradient-to-br from-cyan-500 via-blue-500 to-indigo-500",
+      hoverColor: "hover:from-cyan-600 hover:via-blue-600 hover:to-indigo-600",
+      badge: "🤝 Collaboration",
+      capabilities: ["Real-time Co-editing", "Content Sharing", "Teacher Networks"],
+    },
+    {
+      id: "multigrade",
+      title: "⏰ Multi-Grade Manager",
+      description: "Time optimization and multi-grade coordination with AI-powered lesson templates and live timers.",
+      icon: Clock,
+      color: "bg-gradient-to-br from-orange-500 via-red-500 to-pink-500",
+      hoverColor: "hover:from-orange-600 hover:via-red-600 hover:to-pink-600",
+      badge: "⚡ Time Saver",
+      capabilities: ["Emergency Lessons", "Live Session Timer", "Multi-Grade Templates"],
+    },
+    {
+      id: "progress",
+      title: "📊 Progress Tracker",
+      description: "Individual student profiles with AI insights, cultural intelligence, and automated parent communication.",
+      icon: TrendingUp,
+      color: "bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500",
+      hoverColor: "hover:from-pink-600 hover:via-purple-600 hover:to-indigo-600",
+      badge: "🎯 Personalized",
+      capabilities: ["Individual Profiles", "AI Recommendations", "Parent Updates"],
+    },
   ]
+
+  // Statistics for the demo section
   const demoStats = [
     {
       label: "Languages Supported",
@@ -119,12 +161,16 @@ export default function HomePage() {
       note: "Differentiated content for primary and middle school",
     },
   ]
+
+  // Achievements section data
   const achievements = [
     { icon: Brain, title: "Google AI Integration", description: "Gemini Pro & Vision APIs" },
     { icon: Globe, title: "Multi-Language AI", description: "8+ Indian Languages" },
     { icon: Users, title: "Multi-Grade Support", description: "Differentiated Learning" },
     { icon: Heart, title: "Cultural Intelligence", description: "Context-Aware Content" },
   ]
+
+  // Languages supported data
   const languages = [
     { name: "Hindi", native: "हिंदी", flag: "🇮🇳", coverage: "Primary Focus" },
     { name: "English", native: "English", flag: "🌍", coverage: "Global Standard" },
@@ -135,6 +181,8 @@ export default function HomePage() {
     { name: "Gujarati", native: "ગુજરાતી", flag: "🦁", coverage: "Regional Support" },
     { name: "Kannada", native: "ಕನ್ನಡ", flag: "🐘", coverage: "Regional Support" },
   ]
+
+  // Show a loading spinner until the component is mounted on the client-side
   if (!mounted) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -147,10 +195,12 @@ export default function HomePage() {
       </div>
     )
   }
+
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-      {/* Animated Background */}
+      {/* Animated Background Elements */}
       <FloatingElements />
+
       {/* Enhanced Header */}
       <header className="relative z-20 bg-white/90 backdrop-blur-xl shadow-lg border-b border-white/30 sticky top-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -181,26 +231,27 @@ export default function HomePage() {
           </div>
         </div>
       </header>
+
       {/* Hero Section */}
       <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex ml-[400px] item-center mb-[50px] justify-center">
-          <div className="inline-flex items-center  h-[85px] px-6 bg-gradient-to-r from-pink-100 via-purple-100 to-indigo-100 rounded-full text-purple-800 text-sm font-bold mb-8 border-2 border-purple-200 shadow-lg">
-            <Heart className="w-5 h-5 mr-2 text-red-500" />
-            <p className="mt-[15px]">🇮🇳 Hackathon Project - Google AI for Education 🇮🇳 </p>
-            <Sparkles className="w-5 h-5 ml-2 text-yellow-500" />
+            <div className="inline-flex items-center h-[85px] px-6 bg-gradient-to-r from-pink-100 via-purple-100 to-indigo-100 rounded-full text-purple-800 text-sm font-bold mb-8 border-2 border-purple-200 shadow-lg">
+              <Heart className="w-5 h-5 mr-2 text-red-500" />
+              <p className="mt-[15px]">🇮🇳 Hackathon Project - Google AI for Education 🇮🇳 </p>
+              <Sparkles className="w-5 h-5 ml-2 text-yellow-500" />
+            </div>
+            <div>
+              <Image
+                src="/images/robot.png"
+                alt="AI Robot Assistant, a symbol for teaching and innovation"
+                width={220}
+                height={220}
+                className="cursor-pointer ml-[170px] hover:scale-105 transition-transform "
+                onClick={() => router.push('/TeachingInterface')}
+              />
+            </div>
           </div>
-          <div>
-          <Image
-        src="/images/robot.png"
-        alt="Teaching Robot"
-        width={220}
-        height={220}
-        className="cursor-pointer ml-[170px] hover:scale-105 transition-transform "
-        onClick={() => router.push('/TeachingInterface')}
-      />
-      </div>
-      </div>
           <h2 className="text-6xl md:text-7xl font-black text-gray-900 mb-8 leading-tight">
             AI Teaching Assistant for{" "}
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
@@ -212,6 +263,7 @@ export default function HomePage() {
             <strong>resource constraints</strong>, and <strong>multi-grade teaching</strong> through intelligent AI
             solutions.
           </p>
+
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16">
             <Button
@@ -231,6 +283,7 @@ export default function HomePage() {
               View Presentation
             </Button>
           </div>
+
           {/* Demo Statistics */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
             {demoStats.map((stat, index) => {
@@ -253,6 +306,7 @@ export default function HomePage() {
               )
             })}
           </div>
+
           {/* Technology Stack */}
           <div className="flex flex-wrap items-center justify-center space-x-8 text-sm text-gray-600 mb-8">
             <div className="flex items-center bg-white/70 px-6 py-3 rounded-full shadow-lg mb-4">
@@ -274,13 +328,14 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
       {/* Language Support Showcase */}
       <section className="relative z-10 py-16 px-4 sm:px-6 lg:px-8 bg-white/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h3 className="text-4xl font-bold text-gray-900 mb-4">🌍 Multi-Language AI Support</h3>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Designed for India's linguistic diversity with AI that understands cultural context and regional nuances
+              Designed for India's linguistic diversity with AI that understands cultural context and regional nuances.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -300,6 +355,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
       {/* Features Showcase */}
       <section className="relative z-10 py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -312,7 +368,7 @@ export default function HomePage() {
               Comprehensive Teaching Solutions
             </h3>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Each feature addresses specific challenges in Indian education with advanced AI technology
+              Each feature addresses specific challenges in Indian education with advanced AI technology.
             </p>
           </div>
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
@@ -377,7 +433,8 @@ export default function HomePage() {
                 )
               })}
             </div>
-            {/* Tab Content */}
+
+            {/* Tab Content for each feature */}
             <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-3xl border-2 border-white/30 overflow-hidden">
               <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-6">
                 <div className="flex items-center justify-between text-white">
@@ -417,16 +474,26 @@ export default function HomePage() {
               <TabsContent value="planner" className="p-8 m-0">
                 <LessonPlanner />
               </TabsContent>
+              <TabsContent value="collaboration" className="p-8 m-0">
+                <CollaborationPanel />
+              </TabsContent>
+              <TabsContent value="multigrade" className="p-8 m-0">
+                <MultiGradeManager />
+              </TabsContent>
+              <TabsContent value="progress" className="p-8 m-0">
+                <StudentProgressTracker />
+              </TabsContent>
             </div>
           </Tabs>
         </div>
       </section>
+
       {/* Technical Achievements */}
       <section className="relative z-10 py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h3 className="text-4xl font-bold text-gray-900 mb-4">🏆 Technical Implementation</h3>
-            <p className="text-xl text-gray-600">Advanced AI integration for educational applications</p>
+            <p className="text-xl text-gray-600">Advanced AI integration for educational applications.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {achievements.map((achievement, index) => {
@@ -447,6 +514,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
       {/* Footer */}
       <footer className="relative z-10 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 text-white mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -497,6 +565,15 @@ export default function HomePage() {
                 <li>
                   <span className="text-blue-200">Lesson Planning</span>
                 </li>
+                <li>
+                  <span className="text-cyan-300">Content Collaboration</span>
+                </li>
+                <li>
+                  <span className="text-blue-200">Multi-Grade Management</span>
+                </li>
+                <li>
+                  <span className="text-blue-200">Student Progress Tracking</span>
+                </li>
               </ul>
             </div>
             {/* Technology Stack */}
@@ -522,6 +599,10 @@ export default function HomePage() {
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-red-400 rounded-full"></div>
                   <span className="text-blue-200">Next.js 15</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-3 h-3 bg-cyan-400 rounded-full"></div>
+                  <span className="text-blue-200">Teacher Collaboration</span>
                 </div>
               </div>
             </div>
