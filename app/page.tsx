@@ -8,7 +8,31 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { BookOpen, Camera, MessageCircle, PenTool, Mic, Calendar, Sparkles, Users, Globe, Zap, Heart, Award, Rocket, Brain, CheckCircle, ArrowRight, Play, Share2, MessageSquare, Eye, Wand2, Clock, TrendingUp } from 'lucide-react'
+import {
+  BookOpen,
+  Camera,
+  MessageCircle,
+  PenTool,
+  Mic,
+  Calendar,
+  Sparkles,
+  Users,
+  Globe,
+  Zap,
+  Heart,
+  Award,
+  Rocket,
+  Brain,
+  CheckCircle,
+  ArrowRight,
+  Play,
+  Share2,
+  MessageSquare,
+  Eye,
+  Wand2,
+  Clock,
+  TrendingUp,
+} from "lucide-react"
 import ContentGenerator from "@/components/content-generator"
 import WorksheetCreator from "@/components/worksheet-creator"
 import KnowledgeBase from "@/components/knowledge-base"
@@ -18,26 +42,23 @@ import LessonPlanner from "@/components/lesson-planner"
 import CollaborationPanel from "@/components/collaboration-panel"
 import FloatingElements from "@/components/ui/floating-elements"
 import LanguageDropdown from "@/components/LanguageDropdown"
-import MultiGradeManager from "@/components/multi-grade-manager" // Added new component
-import StudentProgressTracker from "@/components/student-progress-tracker" // Added new component
+import MultiGradeManager from "@/components/multi-grade-manager"
+import StudentProgressTracker from "@/components/student-progress-tracker"
 
 export default function HomePage() {
   const router = useRouter()
   const [activeTab, setActiveTab] = useState("content")
   const [mounted, setMounted] = useState(false)
 
-  // useEffect to ensure the component is mounted on the client-side
-  // This helps with hydration issues if components rely on browser APIs
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  // Array defining the features of the Sahayak AI
   const features = [
     {
       id: "content",
       title: "📚 Content Generator",
-      description: "Generate culturally relevant educational content in multiple Indian languages using Google AI.",
+      description: "Generate culturally relevant educational content in multiple Indian languages using Google AI",
       icon: BookOpen,
       color: "bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600",
       hoverColor: "hover:from-blue-600 hover:via-blue-700 hover:to-indigo-700",
@@ -47,7 +68,7 @@ export default function HomePage() {
     {
       id: "worksheet",
       title: "📸 Worksheet Creator",
-      description: "Upload textbook images and generate differentiated worksheets using Gemini Vision API.",
+      description: "Upload textbook images and generate differentiated worksheets using Gemini Vision API",
       icon: Camera,
       color: "bg-gradient-to-br from-green-500 via-green-600 to-emerald-600",
       hoverColor: "hover:from-green-600 hover:via-green-700 hover:to-emerald-700",
@@ -57,7 +78,7 @@ export default function HomePage() {
     {
       id: "knowledge",
       title: "🧠 Knowledge Assistant",
-      description: "Provide simple explanations for complex questions with cultural analogies and examples.",
+      description: "Provide simple explanations for complex questions with cultural analogies and examples",
       icon: MessageCircle,
       color: "bg-gradient-to-br from-purple-500 via-purple-600 to-violet-600",
       hoverColor: "hover:from-purple-600 hover:via-purple-700 hover:to-violet-700",
@@ -67,7 +88,7 @@ export default function HomePage() {
     {
       id: "visual",
       title: "🎨 Visual Aid Designer",
-      description: "Create educational diagrams and illustrations with step-by-step drawing instructions.",
+      description: "Create educational diagrams and illustrations with step-by-step drawing instructions",
       icon: PenTool,
       color: "bg-gradient-to-br from-orange-500 via-orange-600 to-red-500",
       hoverColor: "hover:from-orange-600 hover:via-orange-700 hover:to-red-600",
@@ -77,7 +98,7 @@ export default function HomePage() {
     {
       id: "audio",
       title: "🎤 Reading Assessment",
-      description: "AI-powered reading fluency and pronunciation assessment using Google Speech API.",
+      description: "AI-powered reading fluency and pronunciation assessment using Google Speech API",
       icon: Mic,
       color: "bg-gradient-to-br from-red-500 via-pink-500 to-rose-600",
       hoverColor: "hover:from-red-600 hover:via-pink-600 hover:to-rose-700",
@@ -87,7 +108,7 @@ export default function HomePage() {
     {
       id: "planner",
       title: "📅 Lesson Planner",
-      description: "Comprehensive lesson planning with cultural intelligence and multi-grade classroom support.",
+      description: "Comprehensive lesson planning with cultural intelligence and multi-grade classroom support",
       icon: Calendar,
       color: "bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500",
       hoverColor: "hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600",
@@ -97,7 +118,7 @@ export default function HomePage() {
     {
       id: "collaboration",
       title: "👥 Content Collaboration",
-      description: "Share and co-develop localized educational content with teachers across India.",
+      description: "Share and co-develop localized educational content with teachers across India",
       icon: Users,
       color: "bg-gradient-to-br from-cyan-500 via-blue-500 to-indigo-500",
       hoverColor: "hover:from-cyan-600 hover:via-blue-600 hover:to-indigo-600",
@@ -107,7 +128,7 @@ export default function HomePage() {
     {
       id: "multigrade",
       title: "⏰ Multi-Grade Manager",
-      description: "Time optimization and multi-grade coordination with AI-powered lesson templates and live timers.",
+      description: "Time optimization and multi-grade coordination with AI-powered lesson templates and live timers",
       icon: Clock,
       color: "bg-gradient-to-br from-orange-500 via-red-500 to-pink-500",
       hoverColor: "hover:from-orange-600 hover:via-red-600 hover:to-pink-600",
@@ -117,7 +138,8 @@ export default function HomePage() {
     {
       id: "progress",
       title: "📊 Progress Tracker",
-      description: "Individual student profiles with AI insights, cultural intelligence, and automated parent communication.",
+      description:
+        "Individual student profiles with AI insights, cultural intelligence, and automated parent communication",
       icon: TrendingUp,
       color: "bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500",
       hoverColor: "hover:from-pink-600 hover:via-purple-600 hover:to-indigo-600",
@@ -126,7 +148,6 @@ export default function HomePage() {
     },
   ]
 
-  // Statistics for the demo section
   const demoStats = [
     {
       label: "Languages Supported",
@@ -162,7 +183,6 @@ export default function HomePage() {
     },
   ]
 
-  // Achievements section data
   const achievements = [
     { icon: Brain, title: "Google AI Integration", description: "Gemini Pro & Vision APIs" },
     { icon: Globe, title: "Multi-Language AI", description: "8+ Indian Languages" },
@@ -170,7 +190,6 @@ export default function HomePage() {
     { icon: Heart, title: "Cultural Intelligence", description: "Context-Aware Content" },
   ]
 
-  // Languages supported data
   const languages = [
     { name: "Hindi", native: "हिंदी", flag: "🇮🇳", coverage: "Primary Focus" },
     { name: "English", native: "English", flag: "🌍", coverage: "Global Standard" },
@@ -182,7 +201,6 @@ export default function HomePage() {
     { name: "Kannada", native: "ಕನ್ನಡ", flag: "🐘", coverage: "Regional Support" },
   ]
 
-  // Show a loading spinner until the component is mounted on the client-side
   if (!mounted) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -198,7 +216,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-      {/* Animated Background Elements */}
+      {/* Animated Background */}
       <FloatingElements />
 
       {/* Enhanced Header */}
@@ -244,11 +262,11 @@ export default function HomePage() {
             <div>
               <Image
                 src="/images/robot.png"
-                alt="AI Robot Assistant, a symbol for teaching and innovation"
+                alt="Teaching Robot"
                 width={220}
                 height={220}
                 className="cursor-pointer ml-[170px] hover:scale-105 transition-transform "
-                onClick={() => router.push('/TeachingInterface')}
+                onClick={() => router.push("/TeachingInterface")}
               />
             </div>
           </div>
@@ -335,7 +353,7 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <h3 className="text-4xl font-bold text-gray-900 mb-4">🌍 Multi-Language AI Support</h3>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Designed for India's linguistic diversity with AI that understands cultural context and regional nuances.
+              Designed for India's linguistic diversity with AI that understands cultural context and regional nuances
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -368,7 +386,7 @@ export default function HomePage() {
               Comprehensive Teaching Solutions
             </h3>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Each feature addresses specific challenges in Indian education with advanced AI technology.
+              Each feature addresses specific challenges in Indian education with advanced AI technology
             </p>
           </div>
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
@@ -434,7 +452,7 @@ export default function HomePage() {
               })}
             </div>
 
-            {/* Tab Content for each feature */}
+            {/* Tab Content */}
             <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-3xl border-2 border-white/30 overflow-hidden">
               <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-6">
                 <div className="flex items-center justify-between text-white">
@@ -493,7 +511,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h3 className="text-4xl font-bold text-gray-900 mb-4">🏆 Technical Implementation</h3>
-            <p className="text-xl text-gray-600">Advanced AI integration for educational applications.</p>
+            <p className="text-xl text-gray-600">Advanced AI integration for educational applications</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {achievements.map((achievement, index) => {
