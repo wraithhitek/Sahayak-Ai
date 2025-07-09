@@ -1,14 +1,38 @@
 "use client"
 
 import React from "react"
-import { useRouter } from 'next/navigation'
-import Image from 'next/image'
+import { useRouter } from "next/navigation"
+import Image from "next/image"
 import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { BookOpen, Camera, MessageCircle, PenTool, Mic, Calendar, Sparkles, Users, Globe, Zap, Heart, Award, Rocket, Brain, CheckCircle, ArrowRight, Play, Share2, MessageSquare, Eye, Wand2 } from 'lucide-react'
+import {
+  BookOpen,
+  Camera,
+  MessageCircle,
+  PenTool,
+  Mic,
+  Calendar,
+  Sparkles,
+  Users,
+  Globe,
+  Zap,
+  Heart,
+  Award,
+  Rocket,
+  Brain,
+  CheckCircle,
+  ArrowRight,
+  Play,
+  Share2,
+  MessageSquare,
+  Eye,
+  Wand2,
+  Clock,
+  TrendingUp,
+} from "lucide-react"
 import ContentGenerator from "@/components/content-generator"
 import WorksheetCreator from "@/components/worksheet-creator"
 import KnowledgeBase from "@/components/knowledge-base"
@@ -18,6 +42,8 @@ import LessonPlanner from "@/components/lesson-planner"
 import CollaborationPanel from "@/components/collaboration-panel"
 import FloatingElements from "@/components/ui/floating-elements"
 import LanguageDropdown from "@/components/LanguageDropdown"
+import MultiGradeManager from "@/components/multi-grade-manager"
+import StudentProgressTracker from "@/components/student-progress-tracker"
 
 export default function HomePage() {
   const router = useRouter()
@@ -98,6 +124,27 @@ export default function HomePage() {
       hoverColor: "hover:from-cyan-600 hover:via-blue-600 hover:to-indigo-600",
       badge: "🤝 Collaboration",
       capabilities: ["Real-time Co-editing", "Content Sharing", "Teacher Networks"],
+    },
+    {
+      id: "multigrade",
+      title: "⏰ Multi-Grade Manager",
+      description: "Time optimization and multi-grade coordination with AI-powered lesson templates and live timers",
+      icon: Clock,
+      color: "bg-gradient-to-br from-orange-500 via-red-500 to-pink-500",
+      hoverColor: "hover:from-orange-600 hover:via-red-600 hover:to-pink-600",
+      badge: "⚡ Time Saver",
+      capabilities: ["Emergency Lessons", "Live Session Timer", "Multi-Grade Templates"],
+    },
+    {
+      id: "progress",
+      title: "📊 Progress Tracker",
+      description:
+        "Individual student profiles with AI insights, cultural intelligence, and automated parent communication",
+      icon: TrendingUp,
+      color: "bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500",
+      hoverColor: "hover:from-pink-600 hover:via-purple-600 hover:to-indigo-600",
+      badge: "🎯 Personalized",
+      capabilities: ["Individual Profiles", "AI Recommendations", "Parent Updates"],
     },
   ]
 
@@ -219,7 +266,7 @@ export default function HomePage() {
                 width={220}
                 height={220}
                 className="cursor-pointer ml-[170px] hover:scale-105 transition-transform "
-                onClick={() => router.push('/TeachingInterface')}
+                onClick={() => router.push("/TeachingInterface")}
               />
             </div>
           </div>
@@ -448,6 +495,12 @@ export default function HomePage() {
               <TabsContent value="collaboration" className="p-8 m-0">
                 <CollaborationPanel />
               </TabsContent>
+              <TabsContent value="multigrade" className="p-8 m-0">
+                <MultiGradeManager />
+              </TabsContent>
+              <TabsContent value="progress" className="p-8 m-0">
+                <StudentProgressTracker />
+              </TabsContent>
             </div>
           </Tabs>
         </div>
@@ -532,6 +585,12 @@ export default function HomePage() {
                 </li>
                 <li>
                   <span className="text-cyan-300">Content Collaboration</span>
+                </li>
+                <li>
+                  <span className="text-blue-200">Multi-Grade Management</span>
+                </li>
+                <li>
+                  <span className="text-blue-200">Student Progress Tracking</span>
                 </li>
               </ul>
             </div>
