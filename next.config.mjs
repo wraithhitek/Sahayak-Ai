@@ -7,7 +7,13 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "ubiquitous-waffle-pj9x6rvj54rqhxrq-3000.app.github.dev",
+        pathname: "/images/**",
+      },
+    ],
   },
 }
 
