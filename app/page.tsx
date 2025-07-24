@@ -1,5 +1,4 @@
 "use client"
-
 import React from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
@@ -288,7 +287,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16">
             <Button
               size="lg"
-              className="px-12 py-6 text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 rounded-2xl"
+              className="px-12 py-6 text-xl font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 rounded-2xl"
             >
               <Rocket className="w-6 h-6 mr-3" />
               Try Demo Features
@@ -297,7 +296,7 @@ export default function HomePage() {
             <Button
               variant="outline"
               size="lg"
-              className="px-12 py-6 text-xl font-bold border-2 border-purple-300 text-purple-700 hover:bg-purple-50 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 rounded-2xl bg-transparent"
+              className="px-12 py-6 text-xl font-bold border-2 border-blue-300 text-blue-700 hover:bg-blue-50 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 rounded-2xl bg-transparent"
             >
               <Play className="w-6 h-6 mr-3" />
               View Presentation
@@ -409,7 +408,7 @@ export default function HomePage() {
                     <CardHeader className="pb-4 relative">
                       {/* Badge */}
                       <div className="absolute top-4 right-4">
-                        <Badge className="bg-gradient-to-r from-pink-500 to-rose-500 text-white text-xs font-bold px-3 py-1">
+                        <Badge className="bg-blue-500 text-white text-xs font-bold px-3 py-1">
                           {feature.badge}
                         </Badge>
                       </div>
@@ -442,7 +441,7 @@ export default function HomePage() {
                       <div className="mt-6">
                         <Button
                           size="sm"
-                          className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-bold px-4 py-2 rounded-xl"
+                          className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold px-4 py-2 rounded-xl"
                         >
                           <Rocket className="w-4 h-4 mr-2" />
                           Try Demo
@@ -536,7 +535,7 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 text-white mt-20">
+      <footer className="relative z-10 bg-gray-800 text-white mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             {/* Brand Section */}
@@ -547,17 +546,17 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-3xl font-bold">Sahayak AI</h3>
               </div>
-              <p className="text-blue-100 mb-6 max-w-md leading-relaxed">
+              <p className="text-gray-400 mb-6 max-w-md leading-relaxed">
                 Advanced AI-powered teaching assistant designed to address critical challenges in Indian education
                 systems. Leveraging Google AI technologies to support educators in multi-grade, multilingual classroom
                 environments with culturally relevant content generation.
               </p>
               <div className="flex items-center space-x-4">
-                <Button className="bg-white/20 hover:bg-white/30 text-white border-white/30">
+                <Button className="bg-blue-500 hover:bg-blue-600 text-white">
                   <MessageSquare className="w-4 h-4 mr-2" />
                   Project Details
                 </Button>
-                <Button variant="ghost" className="text-white hover:bg-white/20">
+                <Button variant="ghost" className="text-white hover:bg-gray-700">
                   <Share2 className="w-4 h-4 mr-2" />
                   Share Demo
                 </Button>
@@ -568,31 +567,49 @@ export default function HomePage() {
               <h4 className="text-xl font-bold mb-6">🔗 Demo Features</h4>
               <ul className="space-y-3">
                 <li>
-                  <span className="text-blue-200">Content Generation</span>
+                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                    Content Generation
+                  </a>
                 </li>
                 <li>
-                  <span className="text-blue-200">Worksheet Creation</span>
+                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                    Worksheet Creation
+                  </a>
                 </li>
                 <li>
-                  <span className="text-blue-200">Knowledge Assistant</span>
+                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                    Knowledge Assistant
+                  </a>
                 </li>
                 <li>
-                  <span className="text-blue-200">Visual Aid Designer</span>
+                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                    Visual Aid Designer
+                  </a>
                 </li>
                 <li>
-                  <span className="text-blue-200">Reading Assessment</span>
+                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                    Reading Assessment
+                  </a>
                 </li>
                 <li>
-                  <span className="text-blue-200">Lesson Planning</span>
+                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                    Lesson Planning
+                  </a>
                 </li>
                 <li>
-                  <span className="text-cyan-300">Content Collaboration</span>
+                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                    Content Collaboration
+                  </a>
                 </li>
                 <li>
-                  <span className="text-blue-200">Multi-Grade Management</span>
+                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                    Multi-Grade Management
+                  </a>
                 </li>
                 <li>
-                  <span className="text-blue-200">Student Progress Tracking</span>
+                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                    Student Progress Tracking
+                  </a>
                 </li>
               </ul>
             </div>
@@ -602,35 +619,35 @@ export default function HomePage() {
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                  <span className="text-blue-200">Google AI Studio</span>
+                  <span className="text-gray-400">Google AI Studio</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
-                  <span className="text-blue-200">Gemini Pro API</span>
+                  <span className="text-gray-400">Gemini Pro API</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
-                  <span className="text-blue-200">Gemini Vision</span>
+                  <span className="text-gray-400">Gemini Vision</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-orange-400 rounded-full"></div>
-                  <span className="text-blue-200">Speech API</span>
+                  <span className="text-gray-400">Speech API</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                  <span className="text-blue-200">Next.js 15</span>
+                  <span className="text-gray-400">Next.js 15</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-cyan-400 rounded-full"></div>
-                  <span className="text-blue-200">Teacher Collaboration</span>
+                  <span className="text-gray-400">Teacher Collaboration</span>
                 </div>
               </div>
             </div>
           </div>
           {/* Bottom Section */}
-          <div className="border-t border-white/20 mt-12 pt-8">
+          <div className="border-t border-gray-700 mt-12 pt-8">
             <div className="flex flex-col md:flex-row items-center justify-between">
-              <div className="text-blue-200 text-sm mb-4 md:mb-0">
+              <div className="text-gray-400 text-sm mb-4 md:mb-0">
                 © 2025 Sahayak AI - Educational Technology Solution. Powered by Google AI for enhanced learning
                 outcomes.
               </div>
@@ -639,7 +656,7 @@ export default function HomePage() {
                   <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
                   Production Ready
                 </Badge>
-                <div className="text-blue-200 text-sm">Educational Innovation 2025</div>
+                <div className="text-gray-400 text-sm">Educational Innovation 2025</div>
               </div>
             </div>
           </div>
