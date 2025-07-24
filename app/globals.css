@@ -19,7 +19,12 @@
 
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
+  --primary-color: #4A90E2;
+  --secondary-color: #50E3C2;
+  --accent-color: #F5A623;
+  --background-color: #F7F9FB;
+  --text-color: #333;
 }
 
 @layer utilities {
