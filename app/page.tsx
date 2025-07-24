@@ -155,16 +155,9 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center text-center px-4 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: "url('/public/images/robot.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            filter: "blur(8px)",
-          }}
-        ></div>
+        <div className="hero-bg">
+          <div></div>
+        </div>
         <div className="relative z-10">
           <h2 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
             The Future of Education is Here
@@ -230,10 +223,13 @@ export default function HomePage() {
             </p>
           </div>
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-3 bg-card text-white">
-              <TabsTrigger value="content">Content Generator</TabsTrigger>
-              <TabsTrigger value="worksheet">Worksheet Creator</TabsTrigger>
-              <TabsTrigger value="knowledge">Knowledge Assistant</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-6 bg-card text-white">
+              <TabsTrigger value="content">Content</TabsTrigger>
+              <TabsTrigger value="worksheet">Worksheet</TabsTrigger>
+              <TabsTrigger value="knowledge">Knowledge</TabsTrigger>
+              <TabsTrigger value="visual">Visual Aid</TabsTrigger>
+              <TabsTrigger value="audio">Audio Assessment</TabsTrigger>
+              <TabsTrigger value="planner">Lesson Planner</TabsTrigger>
             </TabsList>
             <TabsContent value="content" className="bg-card p-6 rounded-b-lg">
               <ContentGenerator />
@@ -243,6 +239,15 @@ export default function HomePage() {
             </TabsContent>
             <TabsContent value="knowledge" className="bg-card p-6 rounded-b-lg">
               <KnowledgeBase />
+            </TabsContent>
+            <TabsContent value="visual" className="bg-card p-6 rounded-b-lg">
+              <VisualAidGenerator />
+            </TabsContent>
+            <TabsContent value="audio" className="bg-card p-6 rounded-b-lg">
+              <AudioAssessment />
+            </TabsContent>
+            <TabsContent value="planner" className="bg-card p-6 rounded-b-lg">
+              <LessonPlanner />
             </TabsContent>
           </Tabs>
         </div>
