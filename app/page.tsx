@@ -94,6 +94,13 @@ export default function HomePage() {
     },
   ]
 
+  const handleExploreFeaturesClick = () => {
+    const featuresSection = document.getElementById("features")
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   if (!mounted) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -132,6 +139,7 @@ export default function HomePage() {
               <a href="#contact" className="text-gray-600 hover:text-blue-500 transition-colors">
                 Contact
               </a>
+              <LanguageDropdown />
               <Button className="bg-blue-500 hover:bg-blue-600 text-white">
                 Get Started
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -154,6 +162,7 @@ export default function HomePage() {
               <a href="#contact" className="block py-2 text-gray-600 hover:text-blue-500">
                 Contact
               </a>
+              <LanguageDropdown />
               <Button className="w-full mt-2 bg-blue-500 hover:bg-blue-600 text-white">
                 Get Started
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -174,7 +183,7 @@ export default function HomePage() {
             create engaging and culturally relevant educational content.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white">
+            <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white" onClick={handleExploreFeaturesClick}>
               <Rocket className="w-5 h-5 mr-2" />
               Explore Features
             </Button>
@@ -185,7 +194,7 @@ export default function HomePage() {
           </div>
           <div className="mt-16">
             <Image
-              src="/images/sample-diagram-1.png"
+              src="/images/robot.png"
               alt="Sahayak AI Interface"
               width={800}
               height={500}
@@ -265,10 +274,12 @@ export default function HomePage() {
           <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
             Have questions or want to learn more? We'd love to hear from you.
           </p>
-          <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white">
-            <MessageSquare className="w-5 h-5 mr-2" />
-            Contact Us
-          </Button>
+          <a href="mailto:wraith.hitek@gmail.com">
+            <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white">
+              <MessageSquare className="w-5 h-5 mr-2" />
+              Contact Us
+            </Button>
+          </a>
         </div>
       </section>
 
@@ -306,10 +317,7 @@ export default function HomePage() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Connect with Us</h4>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <Share2 />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <a href="mailto:wraith.hitek@gmail.com" className="text-gray-400 hover:text-white transition-colors">
                   <MessageSquare />
                 </a>
               </div>
