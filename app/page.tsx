@@ -5,7 +5,6 @@ import Image from "next/image"
 import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
   BookOpen,
@@ -15,22 +14,8 @@ import {
   Mic,
   Calendar,
   Sparkles,
-  Users,
-  Globe,
-  Zap,
-  Heart,
-  Award,
-  Rocket,
-  Brain,
-  CheckCircle,
   ArrowRight,
   Play,
-  Share2,
-  MessageSquare,
-  Eye,
-  Wand2,
-  Clock,
-  TrendingUp,
   Menu,
 } from "lucide-react"
 import ContentGenerator from "@/components/content-generator"
@@ -39,11 +24,7 @@ import KnowledgeBase from "@/components/knowledge-base"
 import VisualAidGenerator from "@/components/visual-aid-generator"
 import AudioAssessment from "@/components/audio-assessment"
 import LessonPlanner from "@/components/lesson-planner"
-import CollaborationPanel from "@/components/collaboration-panel"
-import FloatingElements from "@/components/ui/floating-elements"
 import LanguageDropdown from "@/components/LanguageDropdown"
-import MultiGradeManager from "@/components/multi-grade-manager"
-import StudentProgressTracker from "@/components/student-progress-tracker"
 
 export default function HomePage() {
   const router = useRouter()
@@ -58,38 +39,38 @@ export default function HomePage() {
   const features = [
     {
       id: "content",
-      title: "📚 Content Generator",
-      description: "Generate culturally relevant educational content in multiple Indian languages using Google AI",
+      title: "Hyper-Local Content Generation",
+      description: "Generate culturally relevant educational content in multiple Indian languages.",
       icon: BookOpen,
     },
     {
       id: "worksheet",
-      title: "📸 Worksheet Creator",
-      description: "Upload textbook images and generate differentiated worksheets using Gemini Vision API",
+      title: "Differentiated Material Creation",
+      description: "Instantly generate multiple versions of a worksheet tailored to different grade levels.",
       icon: Camera,
     },
     {
       id: "knowledge",
-      title: "🧠 Knowledge Assistant",
-      description: "Provide simple explanations for complex questions with cultural analogies and examples",
+      title: "Instant Knowledge Base",
+      description: "Provide simple, accurate explanations for complex student questions in the local language.",
       icon: MessageCircle,
     },
     {
       id: "visual",
-      title: "🎨 Visual Aid Designer",
-      description: "Create educational diagrams and illustrations with step-by-step drawing instructions",
+      title: "Visual Aid Design",
+      description: "Generate simple line drawings or charts based on a teacher's description.",
       icon: PenTool,
     },
     {
       id: "audio",
-      title: "🎤 Reading Assessment",
-      description: "AI-powered reading fluency and pronunciation assessment using Google Speech API",
+      title: "Audio-Based Reading Assessments",
+      description: "AI-powered reading fluency and pronunciation assessment using Vertex AI Speech-to-Text.",
       icon: Mic,
     },
     {
       id: "planner",
-      title: "📅 Lesson Planner",
-      description: "Comprehensive lesson planning with cultural intelligence and multi-grade classroom support",
+      title: "AI-Powered Weekly Lesson Planners",
+      description: "Structure activities and save teachers valuable time with AI-powered lesson planners.",
       icon: Calendar,
     },
   ]
@@ -103,45 +84,45 @@ export default function HomePage() {
 
   if (!mounted) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="text-center">
-          <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
+          <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
             <Sparkles className="w-8 h-8 text-white" />
           </div>
-          <p className="text-lg font-medium text-gray-600">Loading Sahayak AI...</p>
+          <p className="text-lg font-medium text-foreground">Loading The Future of Education...</p>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-800">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <header className="bg-white shadow-md sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <header className="bg-transparent absolute top-0 left-0 w-full z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
                 <Sparkles className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">Sahayak AI</h1>
-                <p className="text-sm text-gray-500">Your AI Teaching Assistant</p>
+                <h1 className="text-2xl font-bold text-white">Sahayak AI</h1>
+                <p className="text-sm text-gray-400">The Visionary Futurist</p>
               </div>
             </div>
             <div className="hidden md:flex items-center space-x-6">
-              <a href="#features" className="text-gray-600 hover:text-blue-500 transition-colors">
+              <a href="#features" className="text-gray-300 hover:text-white transition-colors">
                 Features
               </a>
-              <a href="#demo" className="text-gray-600 hover:text-blue-500 transition-colors">
+              <a href="#demo" className="text-gray-300 hover:text-white transition-colors">
                 Demo
               </a>
-              <a href="#contact" className="text-gray-600 hover:text-blue-500 transition-colors">
+              <a href="#contact" className="text-gray-300 hover:text-white transition-colors">
                 Contact
               </a>
               <LanguageDropdown />
-              <Button className="bg-blue-500 hover:bg-blue-600 text-white">
-                Get Started
+              <Button className="btn-primary">
+                Join the Revolution
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
@@ -152,19 +133,19 @@ export default function HomePage() {
             </div>
           </div>
           {isMenuOpen && (
-            <div className="md:hidden mt-4">
-              <a href="#features" className="block py-2 text-gray-600 hover:text-blue-500">
+            <div className="md:hidden mt-4 bg-card p-4 rounded-lg">
+              <a href="#features" className="block py-2 text-gray-300 hover:text-white">
                 Features
               </a>
-              <a href="#demo" className="block py-2 text-gray-600 hover:text-blue-500">
+              <a href="#demo" className="block py-2 text-gray-300 hover:text-white">
                 Demo
               </a>
-              <a href="#contact" className="block py-2 text-gray-600 hover:text-blue-500">
+              <a href="#contact" className="block py-2 text-gray-300 hover:text-white">
                 Contact
               </a>
               <LanguageDropdown />
-              <Button className="w-full mt-2 bg-blue-500 hover:bg-blue-600 text-white">
-                Get Started
+              <Button className="w-full mt-2 btn-primary">
+                Join the Revolution
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
@@ -173,44 +154,44 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-            Empowering Teachers with AI
+      <section className="relative h-screen flex items-center justify-center text-center px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: "url('/public/images/robot.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            filter: "blur(8px)",
+          }}
+        ></div>
+        <div className="relative z-10">
+          <h2 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
+            The Future of Education is Here
           </h2>
-          <p className="text-lg text-gray-600 mb-10 max-w-3xl mx-auto">
-            Sahayak AI is designed to help teachers in multi-grade classrooms in India. We provide AI-powered tools to
-            create engaging and culturally relevant educational content.
+          <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
+            Sahayak AI is a visionary agentic AI, designed to empower teachers and revolutionize the classroom
+            experience.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white" onClick={handleExploreFeaturesClick}>
-              <Rocket className="w-5 h-5 mr-2" />
-              Explore Features
+            <Button size="lg" className="btn-primary" onClick={handleExploreFeaturesClick}>
+              Explore the Vision
             </Button>
-            <Button variant="outline" size="lg" className="border-blue-500 text-blue-500 hover:bg-blue-50">
+            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-black">
               <Play className="w-5 h-5 mr-2" />
-              Watch Demo
+              Watch the Future Unfold
             </Button>
-          </div>
-          <div className="mt-16">
-            <Image
-              src="/images/robot.png"
-              alt="Sahayak AI Interface"
-              width={800}
-              height={500}
-              className="rounded-lg shadow-2xl mx-auto"
-            />
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 px-4 sm:px-6 lg:px-8">
+      <section id="features" className="py-20 px-4 sm:px-6 lg:px-8 bg-card">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Our Core Features</h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We offer a suite of AI-powered tools to help you create amazing educational content.
+            <h3 className="text-4xl font-bold text-white mb-4">A Glimpse into the Future</h3>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              Our agentic AI is equipped with a suite of powerful features designed to transform education.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -219,18 +200,18 @@ export default function HomePage() {
               return (
                 <Card
                   key={feature.id}
-                  className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  className="bg-background rounded-lg shadow-lg hover:shadow-primary/50 transition-shadow duration-300"
                 >
                   <CardHeader className="p-6">
                     <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                        <Icon className="w-6 h-6 text-blue-500" />
+                      <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+                        <Icon className="w-6 h-6 text-primary" />
                       </div>
-                      <CardTitle className="text-lg font-semibold text-gray-900">{feature.title}</CardTitle>
+                      <CardTitle className="text-lg font-semibold text-white">{feature.title}</CardTitle>
                     </div>
                   </CardHeader>
                   <CardContent className="p-6 pt-0">
-                    <CardDescription className="text-gray-600">{feature.description}</CardDescription>
+                    <CardDescription className="text-gray-400">{feature.description}</CardDescription>
                   </CardContent>
                 </Card>
               )
@@ -240,27 +221,27 @@ export default function HomePage() {
       </section>
 
       {/* Demo Section */}
-      <section id="demo" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="demo" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Live Demo</h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              See our AI tools in action. Select a feature to get started.
+            <h3 className="text-4xl font-bold text-white mb-4">Experience the Future</h3>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              Interact with our agentic AI and witness the power of futuristic education.
             </p>
           </div>
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-3">
+            <TabsList className="grid w-full grid-cols-3 bg-card text-white">
               <TabsTrigger value="content">Content Generator</TabsTrigger>
               <TabsTrigger value="worksheet">Worksheet Creator</TabsTrigger>
               <TabsTrigger value="knowledge">Knowledge Assistant</TabsTrigger>
             </TabsList>
-            <TabsContent value="content">
+            <TabsContent value="content" className="bg-card p-6 rounded-b-lg">
               <ContentGenerator />
             </TabsContent>
-            <TabsContent value="worksheet">
+            <TabsContent value="worksheet" className="bg-card p-6 rounded-b-lg">
               <WorksheetCreator />
             </TabsContent>
-            <TabsContent value="knowledge">
+            <TabsContent value="knowledge" className="bg-card p-6 rounded-b-lg">
               <KnowledgeBase />
             </TabsContent>
           </Tabs>
@@ -268,63 +249,25 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
+      <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-card">
         <div className="max-w-7xl mx-auto text-center">
-          <h3 className="text-3xl font-bold text-gray-900 mb-4">Get in Touch</h3>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-            Have questions or want to learn more? We'd love to hear from you.
+          <h3 className="text-4xl font-bold text-white mb-4">Join the Vision</h3>
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
+            Connect with us to be a part of the educational revolution.
           </p>
           <a href="mailto:wraith.hitek@gmail.com">
-            <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white">
-              <MessageSquare className="w-5 h-5 mr-2" />
-              Contact Us
+            <Button size="lg" className="btn-primary">
+              Contact the Future
             </Button>
           </a>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white">
+      <footer className="bg-background text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h4 className="text-lg font-semibold mb-4">About Sahayak AI</h4>
-              <p className="text-gray-400">
-                Our mission is to empower teachers in India with AI-powered tools to create engaging and culturally
-                relevant educational content.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#features" className="text-gray-400 hover:text-white transition-colors">
-                    Features
-                  </a>
-                </li>
-                <li>
-                  <a href="#demo" className="text-gray-400 hover:text-white transition-colors">
-                    Demo
-                  </a>
-                </li>
-                <li>
-                  <a href="#contact" className="text-gray-400 hover:text-white transition-colors">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Connect with Us</h4>
-              <div className="flex space-x-4">
-                <a href="mailto:wraith.hitek@gmail.com" className="text-gray-400 hover:text-white transition-colors">
-                  <MessageSquare />
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-6 text-center text-gray-500">
-            <p>&copy; 2025 Sahayak AI. All rights reserved.</p>
+          <div className="text-center">
+            <p className="text-gray-400">&copy; 2025 Sahayak AI. The Future of Education is Now.</p>
           </div>
         </div>
       </footer>
