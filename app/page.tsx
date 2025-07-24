@@ -24,7 +24,6 @@ import KnowledgeBase from "@/components/knowledge-base"
 import VisualAidGenerator from "@/components/visual-aid-generator"
 import AudioAssessment from "@/components/audio-assessment"
 import LessonPlanner from "@/components/lesson-planner"
-import LanguageDropdown from "@/components/LanguageDropdown"
 
 export default function HomePage() {
   const router = useRouter()
@@ -44,6 +43,7 @@ export default function HomePage() {
       new window.google.translate.TranslateElement(
         {
           pageLanguage: "en",
+          includedLanguages: "en,hi,bn,gu,kn,ml,mr,pa,ta,te",
           layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
         },
         "google_translate_element"

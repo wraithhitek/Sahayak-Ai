@@ -84,3 +84,15 @@ body {
     transform: translateX(-50%);
   }
 }
+
+#google_translate_element .goog-te-gadget-simple {
+  background-color: var(--primary-color) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 8px !important;
+  cursor: pointer;
+}
+
+#google_translate_element .goog-te-gadget-simple span {
+  color: white !important;
+}
