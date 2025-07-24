@@ -24,9 +24,12 @@ import KnowledgeBase from "@/components/knowledge-base"
 import VisualAidGenerator from "@/components/visual-aid-generator"
 import AudioAssessment from "@/components/audio-assessment"
 import LessonPlanner from "@/components/lesson-planner"
+import { ThemeSwitcher } from "@/components/theme-switcher"
+import { useTheme } from "next-themes"
 
 export default function HomePage() {
   const router = useRouter()
+  const { theme } = useTheme()
   const [activeTab, setActiveTab] = useState("content")
   const [mounted, setMounted] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -111,7 +114,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className={`min-h-screen bg-background text-foreground ${theme}`}>
       {/* Header */}
       <header className="bg-transparent absolute top-0 left-0 w-full z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -136,6 +139,7 @@ export default function HomePage() {
                 Contact
               </a>
               <div id="google_translate_element"></div>
+              <ThemeSwitcher />
               <Button className="btn-primary">
                 Join the Revolution
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -159,6 +163,7 @@ export default function HomePage() {
                 Contact
               </a>
               <div id="google_translate_element"></div>
+              <ThemeSwitcher />
               <Button className="w-full mt-2 btn-primary">
                 Join the Revolution
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -197,8 +202,8 @@ export default function HomePage() {
       <section id="features" className="py-20 px-4 sm:px-6 lg:px-8 bg-card">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h3 className="text-4xl font-bold text-white mb-4">A Glimpse into the Future</h3>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            <h3 className="text-4xl font-bold text-foreground mb-4">A Glimpse into the Future</h3>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Our agentic AI is equipped with a suite of powerful features designed to transform education.
             </p>
           </div>
@@ -215,11 +220,11 @@ export default function HomePage() {
                       <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
                         <Icon className="w-6 h-6 text-primary" />
                       </div>
-                      <CardTitle className="text-lg font-semibold text-white">{feature.title}</CardTitle>
+                      <CardTitle className="text-lg font-semibold text-foreground">{feature.title}</CardTitle>
                     </div>
                   </CardHeader>
                   <CardContent className="p-6 pt-0">
-                    <CardDescription className="text-gray-400">{feature.description}</CardDescription>
+                    <CardDescription className="text-muted-foreground">{feature.description}</CardDescription>
                   </CardContent>
                 </Card>
               )
@@ -232,13 +237,13 @@ export default function HomePage() {
       <section id="demo" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h3 className="text-4xl font-bold text-white mb-4">Experience the Future</h3>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            <h3 className="text-4xl font-bold text-foreground mb-4">Experience the Future</h3>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Interact with our agentic AI and witness the power of futuristic education.
             </p>
           </div>
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-6 bg-card text-white">
+            <TabsList className="grid w-full grid-cols-6 bg-card text-foreground">
               <TabsTrigger value="content">Content</TabsTrigger>
               <TabsTrigger value="worksheet">Worksheet</TabsTrigger>
               <TabsTrigger value="knowledge">Knowledge</TabsTrigger>
@@ -271,8 +276,8 @@ export default function HomePage() {
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-card">
         <div className="max-w-7xl mx-auto text-center">
-          <h3 className="text-4xl font-bold text-white mb-4">Join the Vision</h3>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
+          <h3 className="text-4xl font-bold text-foreground mb-4">Join the Vision</h3>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
             Connect with us to be a part of the educational revolution.
           </p>
           <a href="mailto:wraith.hitek@gmail.com">
