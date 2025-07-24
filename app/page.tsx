@@ -24,12 +24,9 @@ import KnowledgeBase from "@/components/knowledge-base"
 import VisualAidGenerator from "@/components/visual-aid-generator"
 import AudioAssessment from "@/components/audio-assessment"
 import LessonPlanner from "@/components/lesson-planner"
-import { ThemeSwitcher } from "@/components/theme-switcher"
-import { useTheme } from "next-themes"
 
 export default function HomePage() {
   const router = useRouter()
-  const { theme } = useTheme()
   const [activeTab, setActiveTab] = useState("content")
   const [mounted, setMounted] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -114,7 +111,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className={`min-h-screen bg-background text-foreground ${theme}`}>
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <header className="bg-transparent absolute top-0 left-0 w-full z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -139,7 +136,6 @@ export default function HomePage() {
                 Contact
               </a>
               <div id="google_translate_element"></div>
-              <ThemeSwitcher />
               <Button className="btn-primary">
                 Join the Revolution
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -163,7 +159,6 @@ export default function HomePage() {
                 Contact
               </a>
               <div id="google_translate_element"></div>
-              <ThemeSwitcher />
               <Button className="w-full mt-2 btn-primary">
                 Join the Revolution
                 <ArrowRight className="w-4 h-4 ml-2" />
