@@ -27,6 +27,14 @@ import LessonPlanner from "@/components/lesson-planner"
 import { ThemeSwitcher } from "@/components/theme-switcher"
 import { useTheme } from "next-themes"
 
+// Declare the property on the Window interface
+declare global {
+  interface Window {
+    googleTranslateElementInit: () => void;
+    google?: any; // Optionally type this more strictly if you know the structure
+  }
+}
+
 export default function HomePage() {
   const router = useRouter()
   const { theme } = useTheme()
